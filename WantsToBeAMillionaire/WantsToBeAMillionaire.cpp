@@ -8,7 +8,8 @@
 #include <stdlib.h> 
 //access function
 
-struct NodeQuestion {
+struct NodeQuestion 
+{
 	char nQuestion[256];
 	char nChoices[4][256];
 	char nAnswer;
@@ -21,8 +22,13 @@ struct NodeQuestion* head;
 FILE* QuestionFile;
 FILE* AnswerFile;
 
+char Letters[4] = { 'A', 'B', 'C', 'D' };
+//declare size of array coz it will disappear when you pass it to a function
+char ChoicesSize = sizeof(Letters) / sizeof(Letters[0]);
+
 //clearbuffer for scanf (if has input error it will only display 1 error not redundant)
-void CleanBuffer() {
+void CleanBuffer() 
+{
 	int n;
 	while ((n = getchar()) != EOF && n != '\n');
 }
@@ -53,7 +59,8 @@ int AnswerToIndex(char Answer)
 	return iAnswer;
 }
 
-struct NodeQuestion* GetNewNodeQuestion(char Question[256], char Answer, char ChoicesArray[4][256], int ChoicesSize) {
+struct NodeQuestion* GetNewNodeQuestion(char Question[256], char Answer, char ChoicesArray[4][256], int ChoicesSize) 
+{
 	struct NodeQuestion* newNode = (struct NodeQuestion*)malloc(sizeof(struct NodeQuestion));
 
 	//Insert Question
@@ -73,11 +80,13 @@ struct NodeQuestion* GetNewNodeQuestion(char Question[256], char Answer, char Ch
 	return newNode;
 }
 
-void InsertNodeQuestion(char Question[256], char Answer, char ChoicesArray[4][256], int ChoicesSize) {
+void InsertNodeQuestion(char Question[256], char Answer, char ChoicesArray[4][256], int ChoicesSize) 
+{
 	struct NodeQuestion* temp = head;
-
 	struct NodeQuestion* newNode = GetNewNodeQuestion(Question, Answer, ChoicesArray, ChoicesSize);
-	if (head == NULL) {
+
+	if (head == NULL)
+	{
 		head = newNode;
 		return;
 	}
@@ -89,14 +98,35 @@ void InsertNodeQuestion(char Question[256], char Answer, char ChoicesArray[4][25
 	newNode->prev = temp;
 }
 
+//char Question[256], char Answer, char ChoicesArray[4][256], int ChoicesSize
+void InsertAtIndexQuestion(int NodeIndex)
+{
+	struct NodeQuestion* temp = head;
+	struct NodeQuestion* temp1 = head;
+	//struct NodeQuestion* newNode = GetNewNodeQuestion(Question, Answer, ChoicesArray, ChoicesSize);
+	int i = 1;
+
+	while (temp != NULL)
+	{
+		if (i == NodeIndex)
+		{
+			printf("Question: %s\n", temp->nQuestion);
+
+			//set temp2 for next
+			temp1 = temp->next;
+			printf("Question: %s\n", temp1->nQuestion);
+		}
+	}
+	//temp->next = newMode;
+	//newMode->prev = temp;
+}
+
 void InsertQuestion()
 {
 	char YesNo = 'y';
 	char Question[256];
 	char ChoicesArray[4][256];
-	char ChoicesSize = 0;
 	char Answer;
-	char Letters[4]= { 'A', 'B', 'C', 'D' };
 	int err = 0;
 
 	do
@@ -181,7 +211,8 @@ void InsertQuestion()
 	} while (YesNo != 'n');
 }
 
-void Print(char header[256]) {
+void Print(char header[256]) 
+{
 	struct NodeQuestion* temp = head;
 	char Letters[4] = { 'A', 'B', 'C', 'D' };
 
@@ -309,17 +340,18 @@ void InitCSV()
 	}
 }
 
-void CreateCSV() {
+void CreateCSV() 
+{
 	FILE* fp;
 	struct NodeQuestion* temp = head;
 
-	fopen_s(&fp, "Questions.csv", "w+");
+	fopen_s(&fp, "Questions.csv", "w");
 
-	fprintf(fp, "Question,Answer,cA,cB,cC,cD");
+	fprintf(fp, "Question;Answer;cA;cB;cC;cD");
 
 	while (temp != NULL) {
 		fprintf(fp, "\n%s", temp->nQuestion);
-		fprintf(fp, ";%s", temp->nAnswer);
+		fprintf(fp, ";%c", temp->nAnswer);
 
 		for (int i = 0; i < sizeof(temp->nChoices) / sizeof(temp->nChoices[0]); i++)
 		{
@@ -331,9 +363,147 @@ void CreateCSV() {
 	fclose(fp);
 }
 
-void EditQuestion()
+void EditQuestion(int NodeIndex)
 {
+	struct NodeQuestion* temp = head;
+	struct NodeQuestion* temp1 = head;
+	int i = 1;
+	char nwQuestion[256];
+	char ChoicesArray[4][256];
+	char Answer;
 
+	char saveRecord;
+	char skipChoices;
+	char skipAnswer;
+
+	while (temp != NULL)
+	{
+		if (i == NodeIndex)
+		{
+			printf("Current Question: %s\n", temp->nQuestion);
+
+			printf("Enter your modified question: ");
+			scanf_s(" %[^\n]s", nwQuestion, 256);
+
+			//modify choices
+			do
+			{
+				printf("Do you want to modify choices? ");
+				scanf_s(" %c", &skipChoices, 1);
+
+				if (toupper(skipChoices) == 'Y')
+				{
+					printf("Enter desired answer for A,B,C and D (type cancel to exit) \n");
+
+					//loop for inserting choices
+					for (int i = 0; i < ChoicesSize; i++)
+					{
+						printf("Choice %c: ", Letters[i]);
+						scanf_s(" %[^\n]s", &ChoicesArray[i], 256);
+
+						//Allow user to skipp adding data
+						if (strcmp(ChoicesArray[i], "cancel") == 0)
+						{
+							break;
+						}
+					}
+				}
+				else if (toupper(skipChoices) == 'N')
+				{
+					break;
+				}
+				else
+				{
+					printf("\nError: Invalid input.\n");
+				}
+
+				CleanBuffer();
+			} while (toupper(skipChoices) != 'Y' && toupper(skipChoices) != 'N');
+
+			//modify answer
+			do
+			{
+				printf("Do you want to modify answer? ");
+				scanf_s(" %c", &skipAnswer, 1);
+
+				if (toupper(skipAnswer) == 'Y')
+				{
+					do
+					{
+						printf("What is the answer? Choose from (A,B,C,D) upper or lower doesn't matter. ");
+						scanf_s(" %c", &Answer, 1);
+
+						if (!(toupper(Answer) >= 'A' && toupper(Answer) <= 'D'))
+						{
+							printf("Invalid input please try again.\n");
+						}
+
+						CleanBuffer();
+
+					} while (!(toupper(Answer) >= 'A' && toupper(Answer) <= 'D'));
+				}
+				else if (toupper(skipAnswer) == 'N')
+				{
+					break;
+				}
+				else
+				{
+					printf("\nError: Invalid input.\n");
+				}
+
+				CleanBuffer();
+			} while (toupper(skipAnswer) != 'Y' && toupper(skipAnswer) != 'N');
+
+			//save record
+			do
+			{
+				printf("Are you sure you want to save this record? ");
+				scanf_s(" %c", &saveRecord, 1);
+
+				if (toupper(saveRecord) == 'Y')
+				{
+					printf("\nHooray!\n");
+
+					//Insert Question
+
+					strcpy_s(temp->nQuestion, nwQuestion);
+
+					//Insert Choices
+					if (toupper(skipChoices) == 'Y')
+					{
+						for (int i = 0; i < ChoicesSize; i++)
+						{
+							//debug
+							//printf("Node Ins %s\n", ChoicesArray[i]);
+							strcpy_s(temp->nChoices[i], ChoicesArray[i]);
+						}
+					}
+					
+					//Insert Answer
+					if (toupper(skipAnswer) == 'Y')
+					{
+						temp->nAnswer = Answer;
+					}
+				}
+				else if (toupper(saveRecord) == 'N')
+				{
+					break;
+				}
+				else
+				{
+					printf("\nError: Invalid input.\n");
+				}
+
+				CleanBuffer();
+			} while (toupper(saveRecord) != 'Y' && toupper(saveRecord) != 'N');
+
+			//set temp2 for next
+			//temp1 = temp->next;
+			//printf("Question: %s\n", temp1->nQuestion);
+		}
+		i++;
+		temp = temp->next;
+	}
 }
 
 void DeleteQuestion()
@@ -343,12 +513,19 @@ void DeleteQuestion()
 
 int main()
 {
-	InitCSV();
 
 	//InsertQuestion();
+	InitCSV();
 	Print(NULL);
+	//CreateCSV();
+	//Print(NULL);
 
+	//InsertAtIndexQuestion(2);
+
+	EditQuestion(2);
+	Print(NULL);
+	CreateCSV();
 	//char test[4][6][256] = { { "test123", "B", "123", "qwe", "asd", "zxc" }, { "test321", "B", "123", "qwe", "asd", "zxc" }, { "test456", "B", "123", "qwe", "asd", "zxc" } };
 	//system("cls");
-	//CreateCSV();
+	
 }
