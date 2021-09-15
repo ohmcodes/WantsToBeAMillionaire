@@ -1,3 +1,17 @@
-Question;Answer;cA;cB;cC;cD
-Question1;B;123;qwe;asd;zxc
-Question2;D;321;ewq;dsa;cxz
+Question;Answer;cA;cB;cC;cD;Dialog
+In the UK, the abbreviation NHS stands for National what Service?;B;Humanity;Health;Honour;Household;Hi friend, I have a possitive feeling about letter C
+Which Disney character famously leaves a glass slipper behind at a royal ball?;C;Pocahontas;Sleeping Beauty;Cinderella;Elsa;How are you my friend, my best choices is A
+What name is given to the revolving belt machinery in an airport that delivers checked luggage from the plane to baggage reclaim?;D;Hangar;Terminal;Concourse;Carousel;Hello, how are you?, my bet is D
+Which of these brands was chiefly associated with the manufacture of household locks?;C;Phillips;Flymo;Chubb;Ronseal;Hi, Here's my thought... hmmm... letter A
+The hammer and sickle is one of the most recognisable symbols of which political ideology?;B;Republicanism;Communism;Conservatism;Liberalism;My Grandma is a religious person and that gives me idea and I'm sure the answer is letter B
+Which toys have been marketed with the phrase "robots in disguise"?;D;Bratz Dolls;Sylvanian Families;Hatchimals;Transformers;This is my favorite movie and I'm certain that is D
+What does the word loquacious mean?;B;Angry;Chatty;Beautiful;Shy;My friend I have not much this but let me guess it is C
+Obstetrics is a branch of medicine particularly concerned with what?;A;Childbirth;Broken bones;Heart conditions;Old age;My answer is A, Goodluck!
+In Doctor Who, what was the signature look of the fourth Doctor, as portrayed by Tom Baker?;B;Bow-tie, braces and tweed jacket;Wide-brimmed hat and extra long scarf;Pinstripe suit and trainers;Cape, velvet jacket and frilly shirt;Im not a fasionista but I can guess the answer and I think it is C
+Which of these religious observances lasts for the shortest period of time during the calendar year?;B;Ramadan;Diwali;Lent;Hanukkah;Hm... I think the answer is A
+At the closest point, which island group is only 50 miles south-east of the coast of Florida?;A;Bahamas;US Virgin Islands;Turks and Caicos Islands;Bermuda;Actually I dont know this is a wild guess... its letter A
+Construction of which of these famous landmarks was completed first?;D;Empire State Building;Royal Albert Hall;Eiffel Tower;Big Ben Clock Tower;Letter D! I'm sure of it!
+Which of these cetaceans is classified as a "toothed whale"?;C;Gray whale;Minke whale;Sperm whale;Humpback whale;I like C!
+Who is the only British politician to have held all four "Great Offices of State" at some point during their career?;C;David Lloyd George;Harrold Wilson;James Callaghan;John Major;Ohh man! this is C!
+In 1718, which pirate died in battle off the coast of what is now North Carolina?;B;Calico Jack;Blackbeard;Bartholomew Roberts;Captain Kidd;erm... uhmm... I guess it's B
+What sort of animal is Walt Disney's Dumbo?;C;Deer1;Rabbit;Elephant;Donkey;I dont know maybe its A
