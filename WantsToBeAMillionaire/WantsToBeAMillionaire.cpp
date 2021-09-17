@@ -444,6 +444,10 @@ void EditQuestion(int NodeIndex)
 			{
 				strcpy_s(nwQuestion, temp->nQuestion);
 			}
+			else
+			{
+				strcpy_s(temp->nQuestion, nwQuestion);
+			}
 
 			//modify choices
 			do
