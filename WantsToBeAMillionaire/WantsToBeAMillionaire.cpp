@@ -477,6 +477,10 @@ void EditQuestion(int NodeIndex)
 						{
 							strcpy_s(ChoicesArray[i], temp->nChoices[i]);
 						}
+						else
+						{
+							strcpy_s(temp->nChoices[i], ChoicesArray[i]);
+						}
 					}
 				}
 				else if (toupper(cYesNo) == 'N')

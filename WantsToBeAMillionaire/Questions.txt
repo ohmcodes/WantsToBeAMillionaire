@@ -1,4 +1,4 @@
-Question;Answer;cA;cB;cC;cD;Dialog
+Question;Answer;cA;cB;cC;cD
 In the UK, the abbreviation NHS stands for National what Service?;B;Humanity;Health;Honour;Household;Hi friend, I have a possitive feeling about letter C
 Which Disney character famously leaves a glass slipper behind at a royal ball?;C;Pocahontas;Sleeping Beauty;Cinderella;Elsa;How are you my friend, my best choices is A
 What name is given to the revolving belt machinery in an airport that delivers checked luggage from the plane to baggage reclaim?;D;Hangar;Terminal;Concourse;Carousel;Hello, how are you?, my bet is D
@@ -14,4 +14,4 @@ Construction of which of these famous landmarks was completed first?;D;Empire St
 Which of these cetaceans is classified as a "toothed whale"?;C;Gray whale;Minke whale;Sperm whale;Humpback whale;I like C!
 Who is the only British politician to have held all four "Great Offices of State" at some point during their career?;C;David Lloyd George;Harrold Wilson;James Callaghan;John Major;Ohh man! this is C!
 In 1718, which pirate died in battle off the coast of what is now North Carolina?;B;Calico Jack;Blackbeard;Bartholomew Roberts;Captain Kidd;erm... uhmm... I guess it's B
-What sort of animal is Walt Disney's Dumbo?;C;Deer1;Rabbit;Elephant;Donkey;I dont know maybe its A
+What sort of animal is Walt Disney's Dumbo?;D;Deer1;Rabbit1;Elephant1;Donkey1;I dont know maybe its A
