@@ -1,4 +1,4 @@
-Question;Answer;cA;cB;cC;cD
+Question;Answer;cA;cB;cC;cD;Dialog
 In the UK, the abbreviation NHS stands for National what Service?;B;Humanity;Health;Honour;Household;Hi friend, I have a possitive feeling about letter C
 Which Disney character famously leaves a glass slipper behind at a royal ball?;C;Pocahontas;Sleeping Beauty;Cinderella;Elsa;How are you my friend, my best choices is A
 What name is given to the revolving belt machinery in an airport that delivers checked luggage from the plane to baggage reclaim?;D;Hangar;Terminal;Concourse;Carousel;Hello, how are you?, my bet is D
